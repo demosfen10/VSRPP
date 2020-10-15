@@ -5,8 +5,10 @@ class Form extends Component {
         super(props);
         
         this.initialState = {
-            name: '',
-            job: ''
+            id: 1,
+            FirstName: '',
+            LastName: '',
+            Email: ''
         };
 
         this.state = this.initialState;
@@ -26,28 +28,42 @@ class Form extends Component {
         this.props.handleSubmit(this.state);
         this.setState(this.initialState);
     }
+    onClickUp = () => {
+        this.setState((prevState) => {
+            return {
+                id: prevState.id + 1,
+            }
+        })
+};
 
     render() {
-        const { name, job } = this.state; 
+        const { FirstName, LastName, Email } = this.state; 
 
         return (
             <form onSubmit={this.onFormSubmit}>
-                <label for="name">Name</label>
+                <label for="FirstName">FirstName</label>
                 <input 
                     type="text" 
-                    name="name" 
-                    id="name"
-                    value={name} 
+                    name="FirstName" 
+                    id="FirstName"
+                    value={FirstName} 
                     onChange={this.handleChange} />
-                <label for="job">Job</label>
+                <label for="LastName">LastName</label>
                 <input 
                     type="text" 
-                    name="job" 
-                    id="job"
-                    value={job} 
+                    name="LastName" 
+                    id="LastName"
+                    value={LastName} 
+                    onChange={this.handleChange} />
+                <label for="Email">Email</label>
+                <input 
+                    type="email" 
+                    name="Email" 
+                    id="Email"
+                    value={Email} 
                     onChange={this.handleChange} />
                 <button type="submit">
-                    Submit
+                    Add User
                 </button>
             </form>
         );
