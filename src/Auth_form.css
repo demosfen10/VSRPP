@@ -1,0 +1,19 @@
+.LogIn_form{
+  margin: 0 auto;
+  display: grid;    
+  width: 1200px;
+
+  grid-template-areas:
+  welcome welcome
+  text_to_login text_to_login;
+}
+
+.Welcome{
+grid-area: welcome;
+background-color: bisque;
+}
+
+.text_to_login{
+grid-area: text_to_login;
+background-color: burlywood;
+}
